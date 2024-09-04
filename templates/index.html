@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Type Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Credit Type Prediction</h1>
+        <div class="form-container">
+            <form action="/predict" method="post">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Month">Month:</label>
+                        <select id="Month" name="Month" required>
+                            <option value="" disabled selected>Select a month</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Age">Age:</label>
+                        <input type="number" id="Age" name="Age" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Occupation">Occupation:</label>
+                        <select id="Occupation" name="Occupation" required>
+                            <option value="" disabled selected>Select an occupation</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="Engineer">Engineer</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Lawyer">Lawyer</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Annual_Income">Annual Income ($):</label>
+                        <input type="number" id="Annual_Income" name="Annual_Income" min="0" step="0.01" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Monthly_Inhand_Salary">Monthly Inhand Salary ($):</label>
+                        <input type="number" id="Monthly_Inhand_Salary" name="Monthly_Inhand_Salary" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Num_Bank_Accounts">Number of Bank Accounts:</label>
+                        <input type="number" id="Num_Bank_Accounts" name="Num_Bank_Accounts" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Num_Credit_Card">Number of Credit Cards:</label>
+                        <input type="number" id="Num_Credit_Card" name="Num_Credit_Card" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Interest_Rate">Interest Rate (%):</label>
+                        <input type="number" id="Interest_Rate" name="Interest_Rate" min="0" step="0.01" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Num_of_Loan">Number of Loans:</label>
+                        <input type="number" id="Num_of_Loan" name="Num_of_Loan" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Type_of_Loan">Type of Loan:</label>
+                        <select id="Type_of_Loan" name="Type_of_Loan" required>
+                            <option value="" disabled selected>Select a loan type</option>
+                            <option value="Personal Loan">Personal Loan</option>
+                            <option value="Student Loan">Student Loan</option>
+                            <option value="Auto Loan">Auto Loan</option>
+                            <option value="Credit-Builder Loan">Credit-Builder Loan</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Delay_from_due_date">Delay from Due Date (days):</label>
+                        <input type="number" id="Delay_from_due_date" name="Delay_from_due_date" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Num_of_Delayed_Payment">Number of Delayed Payments:</label>
+                        <input type="number" id="Num_of_Delayed_Payment" name="Num_of_Delayed_Payment" min="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Changed_Credit_Limit">Changed Credit Limit ($):</label>
+                        <input type="number" id="Changed_Credit_Limit" name="Changed_Credit_Limit" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Num_Credit_Inquiries">Number of Credit Inquiries:</label>
+                        <input type="number" id="Num_Credit_Inquiries" name="Num_Credit_Inquiries" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Credit_Mix">Credit Mix:</label>
+                        <select id="Credit_Mix" name="Credit_Mix" required>
+                            <option value="" disabled selected>Select credit mix</option>
+                            <option value="Good">Good</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Bad">Bad</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Outstanding_Debt">Outstanding Debt ($):</label>
+                        <input type="number" id="Outstanding_Debt" name="Outstanding_Debt" min="0" step="0.01" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Credit_Utilization_Ratio">Credit Utilization Ratio (%):</label>
+                        <input type="number" id="Credit_Utilization_Ratio" name="Credit_Utilization_Ratio" min="0" max="100" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Credit_History_Age">Credit History Age (years):</label>
+                        <input type="number" id="Credit_History_Age" name="Credit_History_Age" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Payment_of_Min_Amount">Payment of Minimum Amount:</label>
+                        <select id="Payment_of_Min_Amount" name="Payment_of_Min_Amount" required>
+                            <option value="" disabled selected>Select payment status</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Total_EMI_per_month">Total EMI per Month ($):</label>
+                        <input type="number" id="Total_EMI_per_month" name="Total_EMI_per_month" min="0" step="0.01" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Amount_invested_monthly">Amount Invested Monthly ($):</label>
+                        <input type="number" id="Amount_invested_monthly" name="Amount_invested_monthly" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Payment_Behaviour">Payment Behaviour:</label>
+                        <select id="Payment_Behaviour" name="Payment_Behaviour" required>
+                            <option value="" disabled selected>Select payment behaviour</option>
+                            <option value='High_spent_Small_value_payments'>High spent, Small value payments</option>
+                            <option value='Low_spent_Large_value_payments'>Low spent, Large value payments</option>
+                            <option value='Low_spent_Medium_value_payments'>Low spent, Medium value payments</option>
+                            <option value='Low_spent_Small_value_payments'>Low spent, Small value payments</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Monthly_Balance">Monthly Balance ($):</label>
+                        <input type="number" id="Monthly_Balance" name="Monthly_Balance" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group submit-button">
+                        <button type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Prediction Result Display -->
+        {% if prediction %}
+        <div class="result">
+            <h2>Prediction:</h2>
+            <p>{{ prediction }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

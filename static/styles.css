@@ -1,0 +1,99 @@
+/* Basic reset and styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/C:/Users/USER/Desktop/Credit_Score/static/images/credit.jpg') no-repeat center center;
+    background-size: cover;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form-container {
+    margin: 20px 0;
+    background: url('/static/images/credit.jpg') repeat center center
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.form-group {
+    flex: 1 1 calc(25% - 20px); /* 4 columns, minus the gap */
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-button {
+    flex: 1 1 100%; /* Full width for submit button */
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #00ff37;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e7f0ff;
+    border: 1px solid #bcd8ff;
+    border-radius: 4px;
+}
+
+.result h2 {
+    margin-top: 0;
+    color: #0056b3;
+}
