@@ -71,6 +71,7 @@
 <h3>🔄 Continuous Improvement:</h3>
 <ul style="font-family: 'Courier New', monospace; font-size: 1.1em;"> <li><b>Model Monitoring:</b> Ongoing tracking of the model’s performance to ensure accuracy.</li> <li><b>Retraining:</b> Periodic retraining with new data to adapt to changing financial trends.</li> </ul>
 <h3>🚀 Deployed:</h3>
+
 Deployed on Render -- [Link](https://github.com/SinghPriya5/Breat_Cancer_Classification/issues)
 
 <br> the instruction given on [Render Documentation](https://docs.render.com/deploy-flask) to deploy a web app.
